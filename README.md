@@ -7,3 +7,12 @@ Dataset: The project uses a dataset of reviews with labeled sentiments (positive
 
 Models Used:
 
+DistilBERT: A distilled version of BERT, used for sequence classification with custom dropout layers to prevent overfitting.
+LSTM: A Long Short-Term Memory network is employed to capture the sequential nature of text data, with hyperparameter tuning for optimization.
+GRU: A Gated Recurrent Unit network is also explored as an alternative to LSTM for sequential data processing.
+Evaluation Metrics:
+
+Accuracy: Measures the percentage of correct predictions.
+ROC-AUC: Area Under the Receiver Operating Characteristic curve, indicating model performance.
+Confusion Matrix: Provides insight into the model's classification performance across different classes.
+Precision, Recall, F1-Score: Additional metrics to assess the model’s performance in binary classification tasks.
