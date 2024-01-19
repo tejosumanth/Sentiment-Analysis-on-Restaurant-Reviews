@@ -7,3 +7,12 @@ Original file is located at
     https://colab.research.google.com/drive/1ByujiuELzpnNTmp_DQFOkNfLzIhbSP-4
 """
 
+import pandas as pd
+
+
+data = pd.read_csv('reviews.tsv', delimiter='\t')
+
+data
+
+#Lowercase -'Review' column
+data['Review'] = data['Review'].str.lower()
