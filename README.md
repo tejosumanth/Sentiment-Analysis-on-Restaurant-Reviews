@@ -16,3 +16,12 @@ Accuracy: Measures the percentage of correct predictions.
 ROC-AUC: Area Under the Receiver Operating Characteristic curve, indicating model performance.
 Confusion Matrix: Provides insight into the model's classification performance across different classes.
 Precision, Recall, F1-Score: Additional metrics to assess the model’s performance in binary classification tasks.
+Project Structure
+Data Preprocessing:
+
+Lowercasing, punctuation removal, stopword removal.
+Stemming using PorterStemmer.
+Lemmatization using WordNetLemmatizer.
+Tokenization using DistilBERT's tokenizer.
+Word2Vec embeddings are also created for use with LSTM/GRU models.
+Model Training:
