@@ -16,3 +16,12 @@ data
 
 #Lowercase -'Review' column
 data['Review'] = data['Review'].str.lower()
+
+data
+
+import string
+
+# Remove punctuation from the 'Review' column
+translator = str.maketrans('', '', string.punctuation)
+data['Review'] = data['Review'].apply(lambda x: x.translate(translator))
+
