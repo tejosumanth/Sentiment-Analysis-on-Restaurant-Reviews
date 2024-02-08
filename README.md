@@ -25,3 +25,12 @@ Lemmatization using WordNetLemmatizer.
 Tokenization using DistilBERT's tokenizer.
 Word2Vec embeddings are also created for use with LSTM/GRU models.
 Model Training:
+
+DistilBERT: Custom TensorFlow model with dropout layers. The model is fine-tuned on the preprocessed data.
+LSTM: Sequential model with hyperparameter tuning through grid search.
+GRU: Sequential model trained on Word2Vec embeddings with dropout layers to prevent overfitting.
+Evaluation:
+
+Performance metrics are computed using sklearn.
+ROC-AUC curve plotted to visualize model performance.
+Prediction:
