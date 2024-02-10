@@ -25,3 +25,12 @@ import string
 translator = str.maketrans('', '', string.punctuation)
 data['Review'] = data['Review'].apply(lambda x: x.translate(translator))
 
+data
+
+import nltk
+from nltk.corpus import stopwords
+
+nltk.download('stopwords')
+
+# English stop words list
+stop_words = set(stopwords.words('english'))
