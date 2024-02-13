@@ -25,3 +25,12 @@ np.random.seed(42)
 tf.random.set_seed(42)
 
 # Load the dataset
+data = pd.read_csv('reviews.tsv', delimiter='\t')
+
+# Text Preprocessing Functions
+def preprocess_text(text):
+    # Lowercase
+    text = text.lower()
+
+    # Remove punctuation
+    translator = str.maketrans('', '', string.punctuation)
