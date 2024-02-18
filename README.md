@@ -34,3 +34,8 @@ Evaluation:
 Performance metrics are computed using sklearn.
 ROC-AUC curve plotted to visualize model performance.
 Prediction:
+
+Custom sentiment predictions for new reviews, using trained models.
+Results
+The project demonstrates the effectiveness of different NLP techniques and deep learning models in sentiment analysis.
+It highlights the trade-offs between using transformers like DistilBERT and traditional RNN-based models like LSTM and GRU.
