@@ -34,3 +34,12 @@ nltk.download('stopwords')
 
 # English stop words list
 stop_words = set(stopwords.words('english'))
+
+# Remove stop words from the 'Review' column
+data['Review'] = data['Review'].apply(lambda x: ' '.join([word for word in x.split() if word not in stop_words]))
+
+data
+
+import nltk
+from nltk.stem import PorterStemmer
+
