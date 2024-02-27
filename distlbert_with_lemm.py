@@ -34,3 +34,12 @@ def preprocess_text(text):
 
     # Remove punctuation
     translator = str.maketrans('', '', string.punctuation)
+    text = text.translate(translator)
+
+    # Remove stopwords
+    stop_words = set(stopwords.words('english'))
+    text = ' '.join([word for word in text.split() if word not in stop_words])
+
+    # Stemming
+    ps = PorterStemmer()
+    text = ' '.join([ps.stem(word) for word in text.split()])
