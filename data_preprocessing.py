@@ -43,3 +43,12 @@ data
 import nltk
 from nltk.stem import PorterStemmer
 
+ps = PorterStemmer()
+
+# Apply stemming to the 'Review' column
+data['Stemmed_Review'] = data['Review'].apply(lambda x: ' '.join([ps.stem(word) for word in x.split()]))
+
+data
+
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import wordnet
