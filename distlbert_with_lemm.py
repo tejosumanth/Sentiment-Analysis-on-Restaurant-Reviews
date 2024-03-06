@@ -43,3 +43,12 @@ def preprocess_text(text):
     # Stemming
     ps = PorterStemmer()
     text = ' '.join([ps.stem(word) for word in text.split()])
+
+    # Lemmatization
+    lemmatizer = WordNetLemmatizer()
+    text = ' '.join([lemmatizer.lemmatize(word) for word in text.split()])
+
+    return text
+
+# Apply preprocessing to the dataset
+nltk.download('stopwords')
