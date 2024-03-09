@@ -52,3 +52,12 @@ data
 
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
+
+nltk.download('wordnet')
+
+lemmatizer = WordNetLemmatizer()
+
+# Apply lemmatization to the 'Review' column
+data['Lemmatized_Review'] = data['Review'].apply(lambda x: ' '.join([lemmatizer.lemmatize(word) for word in x.split()]))
+data
+
