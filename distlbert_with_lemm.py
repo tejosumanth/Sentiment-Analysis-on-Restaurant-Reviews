@@ -52,3 +52,12 @@ def preprocess_text(text):
 
 # Apply preprocessing to the dataset
 nltk.download('stopwords')
+nltk.download('wordnet')
+data['Processed_Review'] = data['Review'].apply(preprocess_text)
+
+# Split the dataset
+train_data, val_test_data = train_test_split(data, test_size=0.3, random_state=42)
+val_data, test_data = train_test_split(val_test_data, test_size=0.5, random_state=42)
+
+# Initialize the tokenizer
+tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
