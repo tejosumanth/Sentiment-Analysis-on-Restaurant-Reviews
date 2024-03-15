@@ -61,3 +61,12 @@ lemmatizer = WordNetLemmatizer()
 data['Lemmatized_Review'] = data['Review'].apply(lambda x: ' '.join([lemmatizer.lemmatize(word) for word in x.split()]))
 data
 
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv('reviews.tsv', delimiter='\t')
+
+review_counts = data['Liked'].value_counts()
+
+# Plotting the Bar Graph
+plt.figure(figsize=(10, 6))
