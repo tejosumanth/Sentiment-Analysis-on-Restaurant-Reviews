@@ -61,3 +61,12 @@ val_data, test_data = train_test_split(val_test_data, test_size=0.5, random_stat
 
 # Initialize the tokenizer
 tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
+
+# Function to encode the reviews
+def encode_reviews(tokenizer, reviews, max_length=128):
+    return tokenizer.batch_encode_plus(
+        reviews,
+        max_length=max_length,
+        padding='max_length',
+        truncation=True,
+        return_tensors='tf'
