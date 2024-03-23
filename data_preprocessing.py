@@ -70,3 +70,12 @@ review_counts = data['Liked'].value_counts()
 
 # Plotting the Bar Graph
 plt.figure(figsize=(10, 6))
+review_counts.plot(kind='bar', color=['red', 'green'])
+plt.title('Number of Positive and Negative Reviews')
+plt.xlabel('Review Type')
+plt.ylabel('Number of Reviews')
+plt.xticks([0, 1], ['Negative', 'Positive'], rotation=0)
+plt.tight_layout()
+plt.show()
+
+import gensim
