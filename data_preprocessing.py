@@ -79,3 +79,12 @@ plt.tight_layout()
 plt.show()
 
 import gensim
+from gensim.models import Word2Vec
+
+# Tokenize the lemmatized reviews
+sentences = [review.split() for review in data['Lemmatized_Review']]
+
+# Train the Word2Vec model
+model = Word2Vec(sentences, vector_size=100, window=5, min_count=1, workers=4)
+
+# Save the model
