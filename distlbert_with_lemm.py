@@ -79,3 +79,12 @@ test_encodings = encode_reviews(tokenizer, test_data['Processed_Review'].tolist(
 
 # Convert to TensorFlow Datasets
 train_dataset = tf.data.Dataset.from_tensor_slices((dict(train_encodings), train_data['Liked'].values)).shuffle(1000).batch(32)
+val_dataset = tf.data.Dataset.from_tensor_slices((dict(val_encodings), val_data['Liked'].values)).batch(32)
+test_dataset = tf.data.Dataset.from_tensor_slices((dict(test_encodings), test_data['Liked'].values)).batch(32)
+
+# Define the custom DistilBERT model with dropout
+class CustomDistilBertModel(tf.keras.Model):
+    def __init__(self, model_name, num_classes, dropout_rate=0.2):
+        super(CustomDistilBertModel, self).__init__()
+        self.distilbert = TFDistilBertForSequenceClassification.from_pretrained(model_name, num_labels=num_classes)
+        self.dropout = Dropout(dropout_rate)
