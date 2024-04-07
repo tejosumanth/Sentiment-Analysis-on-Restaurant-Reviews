@@ -88,3 +88,12 @@ sentences = [review.split() for review in data['Lemmatized_Review']]
 model = Word2Vec(sentences, vector_size=100, window=5, min_count=1, workers=4)
 
 # Save the model
+model.save("word2vec.model")
+
+import numpy as np
+
+# Function to average all word vectors in a given review
+def review_vector(review, model):
+    words = review.split()
+    word_vectors = [model.wv[word] for word in words if word in model.wv.key_to_index]
+    return np.mean(word_vectors, axis=0)
