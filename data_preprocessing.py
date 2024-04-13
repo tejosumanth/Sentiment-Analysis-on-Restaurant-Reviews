@@ -97,3 +97,12 @@ def review_vector(review, model):
     words = review.split()
     word_vectors = [model.wv[word] for word in words if word in model.wv.key_to_index]
     return np.mean(word_vectors, axis=0)
+
+# Apply the function to each review
+data['Review_Vector'] = data['Lemmatized_Review'].apply(lambda x: review_vector(x, model))
+
+data
+
+'''#lstm without hyperparameter tuning
+from sklearn.model_selection import train_test_split
+from keras.models import Sequential
