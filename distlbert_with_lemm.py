@@ -97,3 +97,12 @@ class CustomDistilBertModel(tf.keras.Model):
 # Instantiate the custom model
 model = CustomDistilBertModel('distilbert-base-uncased', num_classes=1, dropout_rate=0.2)
 
+# Compile the model
+optimizer = tf.keras.optimizers.Adam(learning_rate=2e-5)
+loss = tf.keras.losses.BinaryCrossentropy(from_logits=True)
+metric = tf.keras.metrics.BinaryAccuracy('accuracy')
+model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
+
+# Callbacks for early stopping and learning rate reduction
+early_stopping = EarlyStopping(monitor='val_loss', mode='min', patience=2, verbose=1)
+reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=2, min_lr=1e-6, verbose=1)
