@@ -106,3 +106,12 @@ data
 '''#lstm without hyperparameter tuning
 from sklearn.model_selection import train_test_split
 from keras.models import Sequential
+from keras.layers import LSTM, Dense, Dropout
+from keras.optimizers import Adam
+
+# Splitting data into train and test sets
+X = np.stack(data['Review_Vector'].values)
+y = data['Liked'].values
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Reshaping for LSTM
