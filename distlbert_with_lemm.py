@@ -106,3 +106,12 @@ model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
 # Callbacks for early stopping and learning rate reduction
 early_stopping = EarlyStopping(monitor='val_loss', mode='min', patience=2, verbose=1)
 reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=2, min_lr=1e-6, verbose=1)
+
+# Train the model
+model.fit(train_dataset, epochs=4, validation_data=val_dataset, callbacks=[early_stopping, reduce_lr])
+
+# Evaluate the model
+model.evaluate(test_dataset)
+
+#THISSSS
+import tensorflow as tf
