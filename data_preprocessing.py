@@ -115,3 +115,12 @@ y = data['Liked'].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Reshaping for LSTM
+X_train = np.reshape(X_train, (X_train.shape[0], 1, X_train.shape[1]))
+X_test = np.reshape(X_test, (X_test.shape[0], 1, X_test.shape[1]))
+
+# Building LSTM model
+model = Sequential()
+model.add(LSTM(100, input_shape=(X_train.shape[1], X_train.shape[2]), return_sequences=True))
+model.add(Dropout(0.2))
+model.add(LSTM(100))
+model.add(Dropout(0.2))
