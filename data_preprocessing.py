@@ -124,3 +124,12 @@ model.add(LSTM(100, input_shape=(X_train.shape[1], X_train.shape[2]), return_seq
 model.add(Dropout(0.2))
 model.add(LSTM(100))
 model.add(Dropout(0.2))
+model.add(Dense(1, activation='sigmoid'))
+
+optimizer = Adam(learning_rate=0.001)
+model.compile(loss='binary_crossentropy', optimizer=optimizer, metrics=['accuracy'])
+
+model.fit(X_train, y_train, epochs=20, batch_size=32, validation_data=(X_test, y_test), verbose=1)
+
+loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
+print(f"Validation Loss: {loss:.4f}")
