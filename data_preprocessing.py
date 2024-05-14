@@ -133,3 +133,12 @@ model.fit(X_train, y_train, epochs=20, batch_size=32, validation_data=(X_test, y
 
 loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
 print(f"Validation Loss: {loss:.4f}")
+print(f"Validation Accuracy: {accuracy*100:.2f}%")'''
+
+#grid search for lstm
+'''from sklearn.base import BaseEstimator, ClassifierMixin
+from keras.models import Sequential
+from keras.layers import LSTM, Dropout, Dense
+from keras.optimizers import Adam, RMSprop
+
+class KerasLSTMClassifier(BaseEstimator, ClassifierMixin):
