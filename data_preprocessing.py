@@ -142,3 +142,12 @@ from keras.layers import LSTM, Dropout, Dense
 from keras.optimizers import Adam, RMSprop
 
 class KerasLSTMClassifier(BaseEstimator, ClassifierMixin):
+    def __init__(self, lstm_units=100, dropout_rate=0.2, optimizer='adam', epochs=20, batch_size=64):
+        self.lstm_units = lstm_units
+        self.dropout_rate = dropout_rate
+        self.optimizer = optimizer
+        self.epochs = epochs
+        self.batch_size = batch_size
+        self.model = self.build_model()
+
+    def build_model(self):
