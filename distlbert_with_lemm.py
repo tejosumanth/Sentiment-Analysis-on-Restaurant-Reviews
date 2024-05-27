@@ -142,3 +142,12 @@ def encode_reviews(tokenizer, reviews, max_length=128):
         truncation=True,
         return_tensors='tf'
     )
+
+# Encode and prepare datasets
+train_encodings = encode_reviews(tokenizer, train_data['Review'].tolist())
+val_encodings = encode_reviews(tokenizer, val_data['Review'].tolist())
+test_encodings = encode_reviews(tokenizer, test_data['Review'].tolist())
+
+# Convert to TensorFlow Datasets
+train_dataset = tf.data.Dataset.from_tensor_slices((dict(train_encodings), train_data['Liked'].values)).shuffle(1000).batch(32)
+val_dataset = tf.data.Dataset.from_tensor_slices((dict(val_encodings), val_data['Liked'].values)).batch(32)
