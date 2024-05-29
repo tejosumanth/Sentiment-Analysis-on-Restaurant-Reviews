@@ -151,3 +151,12 @@ class KerasLSTMClassifier(BaseEstimator, ClassifierMixin):
         self.model = self.build_model()
 
     def build_model(self):
+        model = Sequential()
+        model.add(LSTM(self.lstm_units, input_shape=(1, 100), return_sequences=True))
+        model.add(Dropout(self.dropout_rate))
+        model.add(LSTM(int(self.lstm_units/2)))
+        model.add(Dropout(self.dropout_rate))
+        model.add(Dense(1, activation='sigmoid'))
+        model.compile(loss='binary_crossentropy', optimizer=self.optimizer, metrics=['accuracy'])
+        return model
+
