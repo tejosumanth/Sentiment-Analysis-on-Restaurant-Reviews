@@ -160,3 +160,12 @@ class KerasLSTMClassifier(BaseEstimator, ClassifierMixin):
         model.compile(loss='binary_crossentropy', optimizer=self.optimizer, metrics=['accuracy'])
         return model
 
+    def fit(self, X, y):
+        self.model.fit(X, y, epochs=self.epochs, batch_size=self.batch_size)
+        return self
+
+    def predict(self, X):
+        return (self.model.predict(X) > 0.5).astype("int32")
+
+    def score(self, X, y):
+        _, accuracy = self.model.evaluate(X, y, verbose=0)
