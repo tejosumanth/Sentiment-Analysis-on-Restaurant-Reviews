@@ -160,3 +160,12 @@ class CustomDistilBertModel(tf.keras.Model):
         self.distilbert = TFDistilBertForSequenceClassification.from_pretrained(model_name, num_labels=num_classes)
         self.dropout = Dropout(dropout_rate)
 
+    def call(self, inputs):
+        distilbert_output = self.distilbert(inputs)
+        output = self.dropout(distilbert_output.logits)
+        return output
+
+# Instantiate the custom model
+model = CustomDistilBertModel('distilbert-base-uncased', num_classes=1, dropout_rate=0.2)
+
+# Compile the model
