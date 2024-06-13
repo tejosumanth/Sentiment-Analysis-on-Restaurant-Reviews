@@ -169,3 +169,12 @@ class KerasLSTMClassifier(BaseEstimator, ClassifierMixin):
 
     def score(self, X, y):
         _, accuracy = self.model.evaluate(X, y, verbose=0)
+        return accuracy'''
+
+'''from sklearn.model_selection import GridSearchCV
+
+# Parameters for grid search
+param_grid = {
+    'lstm_units': [50, 100],
+    'dropout_rate': [0.1, 0.2],
+    'optimizer': ['Adam', 'RMSprop'],
