@@ -178,3 +178,12 @@ param_grid = {
     'lstm_units': [50, 100],
     'dropout_rate': [0.1, 0.2],
     'optimizer': ['Adam', 'RMSprop'],
+    'epochs': [10, 20],
+    'batch_size': [32, 64]
+}
+
+grid = GridSearchCV(KerasLSTMClassifier(), param_grid, cv=3)
+grid.fit(X_train, y_train)
+
+print("Best parameters found: ", grid.best_params_)
+print("Best cross-validation score: {:.2f}".format(grid.best_score_))'''
