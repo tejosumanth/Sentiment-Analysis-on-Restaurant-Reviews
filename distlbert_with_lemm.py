@@ -178,3 +178,12 @@ model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
 early_stopping = EarlyStopping(monitor='val_loss', mode='min', patience=2, verbose=1)
 reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=2, min_lr=1e-6, verbose=1)
 
+# Train the model
+model.fit(train_dataset,validation_data=val_dataset, epochs=4, callbacks=[early_stopping, reduce_lr])
+
+# Evaluate the model
+model.evaluate(test_dataset)
+#validation_data=val_dataset,
+
+from sklearn.metrics import roc_auc_score, confusion_matrix, f1_score, precision_score, recall_score, accuracy_score
+
