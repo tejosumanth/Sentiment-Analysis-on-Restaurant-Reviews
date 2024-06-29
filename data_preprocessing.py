@@ -187,3 +187,12 @@ grid.fit(X_train, y_train)
 
 print("Best parameters found: ", grid.best_params_)
 print("Best cross-validation score: {:.2f}".format(grid.best_score_))'''
+
+from gensim.models import Word2Vec
+
+w2v_model = Word2Vec.load("word2vec.model")
+
+from keras.preprocessing.sequence import pad_sequences
+
+# Convert each review to its word vector sequence
+data['Review_Sequence'] = data['Lemmatized_Review'].apply(lambda x: [w2v_model.wv[word] for word in x.split() if word in w2v_model.wv.key_to_index])
