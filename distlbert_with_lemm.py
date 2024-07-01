@@ -187,3 +187,12 @@ model.evaluate(test_dataset)
 
 from sklearn.metrics import roc_auc_score, confusion_matrix, f1_score, precision_score, recall_score, accuracy_score
 
+# First, we need to get the predictions for the test set
+test_data_encodings = encode_reviews(tokenizer, test_data['Review'].tolist())
+test_dataset = tf.data.Dataset.from_tensor_slices((dict(test_data_encodings))).batch(32)
+y_true = test_data['Liked'].values
+y_pred_raw = model.predict(test_dataset)
+y_pred = tf.sigmoid(y_pred_raw).numpy().flatten()
+y_pred_label = y_pred > 0.5  # To Convert probabilities to binary labels
+
+# Now calculate the metrics
