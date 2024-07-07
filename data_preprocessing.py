@@ -196,3 +196,12 @@ from keras.preprocessing.sequence import pad_sequences
 
 # Convert each review to its word vector sequence
 data['Review_Sequence'] = data['Lemmatized_Review'].apply(lambda x: [w2v_model.wv[word] for word in x.split() if word in w2v_model.wv.key_to_index])
+
+
+# Pad (or truncate) sequences to have the same length
+max_sequence_length = 50  # Or any other value depending on your data
+X = pad_sequences(data['Review_Sequence'].tolist(), maxlen=max_sequence_length, dtype='float32', padding='post')
+
+y = data['Liked'].values  # Assuming you have a column named 'Label' containing the target values
+
+from keras.models import Sequential
