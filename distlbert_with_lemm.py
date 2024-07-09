@@ -196,3 +196,12 @@ y_pred = tf.sigmoid(y_pred_raw).numpy().flatten()
 y_pred_label = y_pred > 0.5  # To Convert probabilities to binary labels
 
 # Now calculate the metrics
+roc_auc = roc_auc_score(y_true, y_pred)
+cm = confusion_matrix(y_true, y_pred_label)
+f1 = f1_score(y_true, y_pred_label)
+precision = precision_score(y_true, y_pred_label)
+recall = recall_score(y_true, y_pred_label)
+# Calculate test accuracy
+test_accuracy = accuracy_score(y_true, y_pred_label)
+
+# Print the test accuracy
