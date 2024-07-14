@@ -205,3 +205,12 @@ X = pad_sequences(data['Review_Sequence'].tolist(), maxlen=max_sequence_length, 
 y = data['Liked'].values  # Assuming you have a column named 'Label' containing the target values
 
 from keras.models import Sequential
+from keras.layers import GRU, Dropout, Dense
+from sklearn.model_selection import train_test_split
+
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Define the model
+model = Sequential()
+model.add(GRU(100, input_shape=(max_sequence_length, 100), return_sequences=True))
