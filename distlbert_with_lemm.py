@@ -205,3 +205,12 @@ recall = recall_score(y_true, y_pred_label)
 test_accuracy = accuracy_score(y_true, y_pred_label)
 
 # Print the test accuracy
+print("Test Accuracy:", test_accuracy)
+
+# Print the metrics
+print("ROC-AUC Score:", roc_auc)
+print("Confusion Matrix:\n", cm)
+print("F1 Score:", f1)
+print("Precision:", precision)
+print("Recall:", recall)
+
