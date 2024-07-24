@@ -214,3 +214,12 @@ print("F1 Score:", f1)
 print("Precision:", precision)
 print("Recall:", recall)
 
+
+import matplotlib.pyplot as plt
+from sklearn.metrics import roc_curve
+
+fpr, tpr, thresholds = roc_curve(y_true, y_pred)
+
+plt.plot(fpr, tpr, color='darkorange', lw=2, label='ROC curve (area = %0.2f)' % roc_auc)
+plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
+plt.xlim([0.0, 1.0])
