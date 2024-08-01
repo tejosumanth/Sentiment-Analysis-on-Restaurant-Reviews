@@ -232,3 +232,12 @@ plt.show()
 
 import tensorflow as tf
 from transformers import DistilBertTokenizer, TFDistilBertForSequenceClassification
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
+from tensorflow.keras.layers import Dropout
+import matplotlib.pyplot as plt
+
+# dataset
+data = pd.read_csv('reviews.tsv', delimiter='\t')
+
