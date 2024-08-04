@@ -241,3 +241,12 @@ import matplotlib.pyplot as plt
 # dataset
 data = pd.read_csv('reviews.tsv', delimiter='\t')
 
+# Initial split: 70% Training, 30% Combined Validation/Test
+train_data, val_test_data = train_test_split(data, test_size=0.3)
+
+# Second split: Divide the 30% Combined Validation/Test into separate sets
+val_data, test_data = train_test_split(val_test_data, test_size=0.5, random_state=42)
+
+#  number of positive and negative reviews in the training set
+train_counts = train_data['Liked'].value_counts()
+
