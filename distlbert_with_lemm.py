@@ -250,3 +250,12 @@ val_data, test_data = train_test_split(val_test_data, test_size=0.5, random_stat
 #  number of positive and negative reviews in the training set
 train_counts = train_data['Liked'].value_counts()
 
+# number of positive and negative reviews in the validation set
+val_counts = val_data['Liked'].value_counts()
+
+#  number of positive and negative reviews in the test set
+test_counts = test_data['Liked'].value_counts()
+
+# Print the counts
+print("Training set counts:\n", train_counts)
+print("\nValidation set counts:\n", val_counts)
