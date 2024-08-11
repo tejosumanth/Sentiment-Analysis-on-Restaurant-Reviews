@@ -259,3 +259,12 @@ test_counts = test_data['Liked'].value_counts()
 # Print the counts
 print("Training set counts:\n", train_counts)
 print("\nValidation set counts:\n", val_counts)
+print("\nTest set counts:\n", test_counts)
+
+classes = ['Negative', 'Positive']
+
+
+fig, axes = plt.subplots(1, 3, figsize=(18, 5), sharey=True)
+fig.suptitle('Class Distribution in Datasets')
+
+
