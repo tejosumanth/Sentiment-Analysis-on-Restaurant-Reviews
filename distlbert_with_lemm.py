@@ -268,3 +268,12 @@ fig, axes = plt.subplots(1, 3, figsize=(18, 5), sharey=True)
 fig.suptitle('Class Distribution in Datasets')
 
 
+axes[0].bar(classes, train_counts, color=['red', 'green'])
+axes[0].set_title('Training Set')
+axes[0].set_ylabel('Number of Samples')
+
+
+axes[1].bar(classes, val_counts, color=['red', 'green'])
+axes[1].set_title('Validation Set')
+
+
