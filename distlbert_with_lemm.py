@@ -277,3 +277,12 @@ axes[1].bar(classes, val_counts, color=['red', 'green'])
 axes[1].set_title('Validation Set')
 
 
+axes[2].bar(classes, test_counts, color=['red', 'green'])
+axes[2].set_title('Test Set')
+
+
+plt.show()
+
+custom_review = "didnt like restaurant ambience,it was bad but food is tasty, everyone will like this place"
+# Tokenize
+custom_review_encoding = encode_reviews(tokenizer, [custom_review])
