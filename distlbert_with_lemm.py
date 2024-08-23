@@ -286,3 +286,12 @@ plt.show()
 custom_review = "didnt like restaurant ambience,it was bad but food is tasty, everyone will like this place"
 # Tokenize
 custom_review_encoding = encode_reviews(tokenizer, [custom_review])
+
+# Convert to TensorFlow Dataset
+custom_review_dataset = tf.data.Dataset.from_tensor_slices((dict(custom_review_encoding))).batch(1)
+# Make a prediction
+prediction = model.predict(custom_review_dataset)
+
+
+probability = tf.sigmoid(prediction).numpy()
+
