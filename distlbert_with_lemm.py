@@ -295,3 +295,8 @@ prediction = model.predict(custom_review_dataset)
 
 probability = tf.sigmoid(prediction).numpy()
 
+#  sentiment based on the probability
+sentiment = 'Positive' if probability[0] > 0.5 else 'Negative'
+
+# result
+print(f"Review: '{custom_review}'\nPredicted Sentiment: {sentiment} (Probability: {probability[0]})")
