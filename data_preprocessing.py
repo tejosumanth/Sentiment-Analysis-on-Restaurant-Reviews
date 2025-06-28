@@ -222,4 +222,4 @@ model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Train the model
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=20, batch_size=64)# feat: add TSV loader with error handling for malformed review rows
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=20, batch_size=64)# feat: add lemmatization using WordNetLemmatizer as alternative to stemming
