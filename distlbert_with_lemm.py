@@ -299,4 +299,4 @@ probability = tf.sigmoid(prediction).numpy()
 sentiment = 'Positive' if probability[0] > 0.5 else 'Negative'
 
 # result
-print(f"Review: '{custom_review}'\nPredicted Sentiment: {sentiment} (Probability: {probability[0]})")# feat: add inference function to predict sentiment on new review strings
+print(f"Review: '{custom_review}'\nPredicted Sentiment: {sentiment} (Probability: {probability[0]})")
