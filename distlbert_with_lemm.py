@@ -299,4 +299,4 @@ probability = tf.sigmoid(prediction).numpy()
 sentiment = 'Positive' if probability[0] > 0.5 else 'Negative'
 
 # result
-print(f"Review: '{custom_review}'\nPredicted Sentiment: {sentiment} (Probability: {probability[0]})")# feat: add class weight balancing for skewed positive/negative distribution
+print(f"Review: '{custom_review}'\nPredicted Sentiment: {sentiment} (Probability: {probability[0]})")# fix: random seed not set for numpy — results were non-reproducible across runs
