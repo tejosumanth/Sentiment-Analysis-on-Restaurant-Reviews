@@ -39,3 +39,4 @@ Custom sentiment predictions for new reviews, using trained models.
 Results
 The project demonstrates the effectiveness of different NLP techniques and deep learning models in sentiment analysis.
 It highlights the trade-offs between using transformers like DistilBERT and traditional RNN-based models like LSTM and GRU.
+# docs: update README with model comparison table, accuracy results, and usage guide
